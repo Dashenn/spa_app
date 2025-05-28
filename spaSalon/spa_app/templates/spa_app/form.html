@@ -1,0 +1,21 @@
+<section class="request">
+  <div class="container">
+    <h2 class="text-center title text-white mb-4">
+      Оставьте заявку, и администратор перезвонит вам
+    </h2>
+    <div class="form-wrapper">
+      <form method="post">
+        {% csrf_token %} {% for field in form %}
+        <div class="mb-3">
+          {{ field.label_tag }} {{ field }} {% if field.errors %}
+          <div class="text-danger small">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="custom-btn custom-btn-page w-100">
+          Отправить
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
