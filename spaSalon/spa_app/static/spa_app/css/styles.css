@@ -1,0 +1,262 @@
+:root {
+  --color-heading: #4A6FA5;
+  --color-text: #555555;
+  --color-background: #ffffff;
+  --color-button: #D9A5B3;
+  --color-button-hover: #9b6170;
+  --color-white-text: #ffffff;
+  --color-footer: #444444;
+  --color-footer-text: #dddddd;
+  --color-background-gray: #E1E6EB;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* занимает всё доступное пространство между хедером и футером */
+}
+
+.custom-btn {
+    border-radius: 10px;
+    background-color: var(--color-button);
+    color: var(--color-white-text);
+    padding: 5px;
+    width: 120px;
+    border: none;
+font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.custom-btn:hover {
+    background-color: var(--color-button-hover);
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s; 
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--color-heading);   
+}
+
+.footer {
+  background-color: var(--color-footer); 
+  color: var(--color-white-text);
+  font-size: 15px;
+}
+ .footer .navbar-nav .nav-link {
+    font-weight: 400;
+ }
+
+.baner {
+  background-image: url('/static/spa_app/img/baner.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  aspect-ratio: 16 / 9; /* либо можно задать фиксированную высоту */
+display: flex;
+  justify-content: center;
+  align-items: flex-start; /* выравниваем по верхней части */
+  padding-top: 100px; /* отступ от верхнего края */
+}
+
+.baner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 250px; /* расстояние между текстом и кнопкой */
+}
+
+.baner-text {
+  font-family: 'Imperial Script', cursive;
+  font-size: 80px;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.custom-btn-page {
+    width: auto;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.service {
+  background-color: #f8f9fa;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-heading)
+}
+
+.service-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.service-card {
+  height: 0;
+  padding-bottom: 100%; /* Квадратная форма */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: none;
+  overflow: hidden;
+}
+
+.category-card {
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+}
+
+.overlay-footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.service-card-footer {
+  background-color: var(--color-heading);
+  color: var(--color-white-text);
+  font-size: 1.1rem;
+}
+
+.service-card-footer img {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+
+.service-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+}
+
+.service-description {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.info   {
+    background-color: var(--color-background-gray);
+    padding: 50px 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.info div {
+    color: var(--color-heading);
+    font-size: 25px;
+    font-style: italic;
+}
+
+ .specialists-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+    }
+    .specialist-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .specialist-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .specialist-specialty {
+      font-size: 16px;
+      color: #6c757d;
+    }
+    .see-all-btn {
+      margin-top: 40px;
+    }
+
+
+.reviews-section {
+  position: relative;
+  background: var(--color-background);
+  overflow: hidden;
+}
+
+.reviews-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background-color: var(--color-background-gray);
+  z-index: 0;
+}
+
+.reviews-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.review-card {
+  background: var(--color-background);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.stars {
+  margin-top: auto;
+}
+
+
+
+.request {
+  background: url('/static/spa_app/img/form-background.png') no-repeat center center / cover;
+  padding: 60px 0;
+  position: relative;
+  color: white;
+}
+
+.form-wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  color: white;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.field-error {
+  color: #ff6b6b;
+  font-size: 0.875em;
+  margin-top: 3px;
+}

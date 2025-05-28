@@ -1,10 +1,114 @@
 {% extends "spa_app/layout.html" %}
-
+{% load static %}
 {% block title %}
 Home - Lotus Bloom
 {% endblock %}
-
 {% block content %}
 
-<h1>main!!!!!!!!!</h1>
+<section class="baner">
+  <div class="baner-content">
+    <p class="baner-text">Lotus Bloom</p>
+    
+    <button class="custom-btn custom-btn-page">Записаться</button>
+  </div>
+</section>
+
+<section class="service py-5">
+  <div class="container text-center">
+    <h2 class="title  mb-4">Ваша элегантность начинается с гармонии тела и души</h2>
+    <p class="service-description mb-5">
+      Гармония тела и духа начинается с заботы о себе. Погрузитесь в атмосферу релакса, где каждый элемент создан для вашего удовольствия...
+    </p>
+<div class="row g-4">
+  {% for category in categories %}
+    <div class="col-6 col-lg-3">
+      <div 
+        class="card service-card text-white border-0"
+        style="background-image: url('{% if category.image %}{{ category.image.url }}{% else %}{% static 'spa_app/img/default_category.png' %}{% endif %}');">
+        <div class="card-img-overlay d-flex align-items-end p-0">
+          <div class="service-card-footer d-flex align-items-center justify-content-between w-100 px-3 py-2">
+            <img src="{% static 'spa_app/img/icon-card.png' %}" alt="icon-card">
+            <a class="nav-link" href="#">{{ category.name }}</a>
+          </div>
+        </div>
+      </div> 
+    </div>
+  {% endfor %}
+</div>
+</section>
+
+<section class="info   ">
+  <div class="container d-flex justify-content-around text-center">
+    <div class="info-item">
+      <img src="{% static 'spa_app/img/info-icon1.png' %}" alt="icon1" class="mb-2" style="width:50px; height:50px;">
+      <div class="">Профессиональный уход</div>
+    </div>
+    <div class="info-item">
+      <img src="{% static 'spa_app/img/info-icon2.png' %}" alt="icon2" class="mb-2" style="width:50px; height:50px;">
+      <div class="">Забота о каждой</div>
+    </div>
+    <div class="info-item">
+      <img src="{% static 'spa_app/img/info-icon3.png' %}" alt="icon3" class="mb-2" style="width:50px; height:50px;">
+      <div class="">Квалифицированный персонал</div>
+    </div>
+  </div>
+</section>
+
+<section class="container d-flex justify-content-center mt-5 mb-5">
+  <div class="card" style="width: 70%;">
+    <div style="height: 200px; overflow: hidden;">
+      <img src="{% static 'spa_app/img/stock.png' %}" class="card-img-top img-fluid" alt="Акция" style="object-fit: cover; height: 100%; width: 100%;">
+    </div>
+    <div class="card-body text-center">
+      <h5 class="title">Скидка 20% новым клиентам</h5>
+      <button class="custom-btn custom-btn-page">Записаться</button>
+    </div>
+  </div>
+</section>
+
+<section class="specialists-section">
+  <div class="container">
+    <h2 class="title mb-5">Наши специалисты</h2>
+    <div class="row justify-content-center">
+      {% for specialist in specialists|slice:":3" %}
+        <div class="col-md-4 specialist-card mb-4">
+          {% if specialist.photo %}
+            <img src="{{ specialist.photo.url }}" alt="{{ specialist.first_name }} {{ specialist.last_name }}">
+          {% else %}
+            <img src="spa_app/img/default.png" alt="Фото отсутствует">
+          {% endif %}
+          <div class="specialist-name">{{ specialist.first_name }} {{ specialist.last_name }}</div>
+          <div class="specialist-specialty">{{ specialist.specialty }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="see-all-btn">
+      <button class="custom-btn custom-btn-page">Посмотреть всех</button>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section py-5 bg-gradient-half">
+  <div class="container">
+    <h2 class="mb-5 text-center title">Отзывы</h2>
+    <div class="row gy-4 justify-content-center">
+      {% for review in reviews|slice:":3" %}
+        <div class="col-md-4">
+          <div class="review-card d-flex flex-column justify-content-between p-4 h-100">
+            <div>
+              <div class="fw-bold mb-2">{{ review.first_name }} {{ review.last_name }}</div>
+              <div class="mb-3 fst-italic">{{ review.text }}</div>
+            </div>
+            <div class="stars">
+              {% for i in "12345"|slice:":review.rating" %}
+                <span class="star text-warning">★</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% include 'spa_app/form.html' %}
 {% endblock %}
